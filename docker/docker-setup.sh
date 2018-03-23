@@ -8,7 +8,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 
 sudo apt-get update
 apt-cache madison docker-ce
-sudo apt-get install docker-ce
+sudo apt-get install docker-ce=17.12.1~ce-0~ubuntu
 
 sudo docker info
 sudo docker --version
@@ -23,4 +23,7 @@ cat << 'EOF' > daemon.json
 EOF
 sudo cp daemon.json /etc/docker/daemon.json
 rm daemon.json
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 
